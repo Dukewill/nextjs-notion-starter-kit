@@ -32,7 +32,7 @@ import * as config from 'lib/config'
 import { Loading } from './Loading'
 import { Page404 } from './Page404'
 import { PageHead } from './PageHead'
-// import { PageAside } from './PageAside'
+import { PageAside } from './PageAside'
 import { Footer } from './Footer'
 import { NotionPageHeader } from './NotionPageHeader'
 // import { GitHubShareButton } from './GitHubShareButton'
@@ -210,34 +210,44 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
 
-  // const isRootPage =
-  //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
+  const isRootPage =
+    parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
   const isBlogPost =
     block?.type === 'page' && block?.parent_table === 'collection'
-  const isBioPage =
-    parsePageId(block?.id) === parsePageId('531a2373f75a4155a44bbf457abfe69c')
+  // const isBioPage =
+  //   parsePageId(block?.id) === parsePageId('531a2373f75a4155a44bbf457abfe69c')
 
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
-  // const pageAside = React.useMemo(
-  //   () => (
-  //     <PageAside block={block} recordMap={recordMap} isBlogPost={isBlogPost} />
-  //   ),
-  //   [block, recordMap, isBlogPost]
-  // )
+  const pageAside = React.useMemo(
+    () => (
+      <PageAside block={block} recordMap={recordMap} isBlogPost={isBlogPost} />
+    ),
+    [block, recordMap, isBlogPost]
+  )
 
   const footer = React.useMemo(() => <Footer />, [])
 
+  // const pageCover = React.useMemo(() => {
+  //   if (isBioPage) {
+  //     return (
+  //       <HeroHeader className='notion-page-cover-wrapper notion-page-cover-hero' />
+  //     )
+  //   } else {
+  //     return null
+  //   }
+  // }, [isBioPage])
+
   const pageCover = React.useMemo(() => {
-    if (isBioPage) {
+    if (isRootPage) {
       return (
         <HeroHeader className='notion-page-cover-wrapper notion-page-cover-hero' />
       )
     } else {
       return null
     }
-  }, [isBioPage])
+  }, [isRootPage])
 
   if (router.isFallback) {
     return <Loading />
