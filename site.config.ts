@@ -52,10 +52,10 @@ export default siteConfig({
   //navigationStyle: 'default'
   navigationStyle: 'custom',
   navigationLinks: [
-    {
-      title: 'About',
-      pageId: '531a2373f75a4155a44bbf457abfe69c'
-    }
+    // {
+    //   title: '关于',
+    //   pageId: '531a2373f75a4155a44bbf457abfe69c'
+    // }
     // {
     //   title: 'Contact',
     //   pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'

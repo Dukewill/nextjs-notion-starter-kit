@@ -43,7 +43,7 @@
   width: 640px;
 }
 
-.footer {
+/* .footer {
   width: 100%;
   max-width: 1100px;
   margin: auto auto 0;
@@ -53,11 +53,55 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+} */
+
+.footer {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-size: 14px;
 }
 
+/*页脚logo*/
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg)
+  }
+
+  to {
+    -webkit-transform: rotate(360deg)
+  }
+}
+
+.footlogo {
+  width: 30px;
+  height: 30px;
+  opacity: .9;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  /* background-size: cover; */
+  background-position: center center;
+  background-repeat: no-repeat;
+  color:#0066ff;
+  -webkit-transform: rotate(360deg);
+  animation: rotation 12s linear infinite;
+  -moz-animation: rotation 12s linear infinite;
+  -webkit-animation: rotation 12s linear infinite;
+  -o-animation: rotation 12s linear infinite;
+  background-image: url(https://fastly.jsdelivr.net/npm/dukewill@0.0.18/images/starlight.svg) ;
+}
+  
 .copyright {
-  font-size: 80%;
+  font-size: 100%;
   padding: 0.5em;
+  color: lightslategray;
+}
+
+.copyright a:hover {
+  color: rgb(26, 196, 23);
 }
 
 .settings,
@@ -116,16 +160,18 @@
     flex-direction: column;
   }
 
-  .footer > div {
+  .footer>div {
     margin-top: 1em;
   }
 
   .footer .settings {
     order: 1;
   }
+
   .footer .social {
     order: 2;
   }
+
   .footer .copyright {
     order: 3;
   }
@@ -178,14 +224,17 @@
 }
 
 @keyframes octocat-wave {
+
   0%,
   100% {
     transform: rotate(0);
   }
+
   20%,
   60% {
     transform: rotate(-25deg);
   }
+
   40%,
   80% {
     transform: rotate(10deg);
