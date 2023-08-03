@@ -32,7 +32,7 @@ export const FooterImpl: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footlogo}></div>
-      <div className={styles.copyright}>© 2022 <a href='https://daisea.com/about' target='_blank' rel="noreferrer">{config.author}</a></div>
+      <div className={styles.copyright}>© 2023 <a href='https://daisea.com/about' target='_blank' rel="noreferrer">{config.author}</a></div>
 
       {/* <div className={styles.settings}>
         {hasMounted && (
